@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="style_TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="textAllCaps">false</item>
+        <item name="android:textColor">@color/green</item>
+    </style>
+
+    <style name="style_DefaultButton" parent="Widget.MaterialComponents.Button">
+        <item name="textAllCaps">false</item>
+        <item name="backgroundTint">@color/green</item>
+    </style>
+
+    <style name="style_OutlineButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="textAllCaps">false</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="strokeColor">@color/green</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+</resources>

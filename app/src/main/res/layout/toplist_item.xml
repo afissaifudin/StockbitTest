@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.afisdev.stockbittest.model.Toplist" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_12dp">
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/Heading4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="BTC" />
+
+        <TextView
+            android:id="@+id/tvFullName"
+            style="@style/Body3"
+            android:textColor="@color/silver"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
+            tools:text="Bitcoin" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            style="@style/Heading4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="9,513.98" />
+
+        <TextView
+            android:id="@+id/tvCalculatePercent"
+            style="@style/Body2"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPrice"
+            tools:text="-23.22(-0.24%)" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

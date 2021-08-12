@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="fragment"
+            type="com.afisdev.stockbittest.view.fragment.LoginFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/dimen_16dp"
+        tools:context=".view.fragment.LoginFragment">
+
+        <com.afisdev.core.ui.customview.LoadingView
+            android:id="@+id/loadingView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/noInternetView"
+            layout="@layout/layout_no_internet_connection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/custom_appbar" />
+
+        <com.afisdev.core.ui.customview.SigninView
+            android:id="@+id/signinGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_24dp"
+            app:icon="@drawable/ic_google"
+            app:layout_constraintTop_toBottomOf="@+id/appbar"
+            app:title="@string/signin_with_google" />
+
+        <com.afisdev.core.ui.customview.SigninView
+            android:id="@+id/signinFacebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            app:icon="@drawable/ic_facebook"
+            app:layout_constraintTop_toBottomOf="@+id/signinGoogle"
+            app:title="@string/signin_with_facebook" />
+
+        <View
+            android:id="@+id/leftSeparator"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginEnd="@dimen/dimen_12dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@id/textSeparator"
+            app:layout_constraintEnd_toStartOf="@+id/textSeparator"
+            app:layout_constraintTop_toBottomOf="@id/signinFacebook"
+            app:layout_constraintTop_toTopOf="@id/textSeparator" />
+
+        <TextView
+            android:id="@+id/textSeparator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_24dp"
+            android:text="@string/login_title_separator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/leftSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signinFacebook" />
+
+        <View
+            android:id="@+id/rightSeparator"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@id/textSeparator"
+            app:layout_constraintStart_toEndOf="@id/textSeparator"
+            app:layout_constraintTop_toBottomOf="@id/signinFacebook"
+            app:layout_constraintTop_toTopOf="@+id/textSeparator" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_24dp"
+            android:hint="@string/username_or_email"
+            app:boxStrokeColor="@color/selector_stroke_color"
+            app:layout_constraintTop_toBottomOf="@+id/textSeparator">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:hint="@string/password"
+            app:boxStrokeColor="@color/selector_stroke_color"
+            app:endIconMode="password_toggle"
+            app:layout_constraintTop_toBottomOf="@+id/etUsername">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnForgetPass"
+            style="@style/style_TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:text="@string/forget_pass"
+            android:textSize="@dimen/text_dimen_12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPass" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="@style/style_DefaultButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->fragment.nextFragment()}"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:text="@string/login"
+            app:layout_constraintTop_toBottomOf="@+id/btnForgetPass" />
+
+        <Button
+            android:id="@+id/outlinedButton"
+            style="@style/style_OutlineButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_with_fingerprint"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_32dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/outlinedButton">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dont_have_an_account"
+                android:textColor="@color/black" />
+
+            <Button
+                style="@style/style_TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/signup_now"
+                android:textColor="@color/green" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
